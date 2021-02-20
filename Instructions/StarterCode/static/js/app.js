@@ -28,11 +28,26 @@ function buildCharts (sample) {
   d3.json("static/js/samples.json").then(data => {
     var samples = data.samples;
     var barData = samples.filter(i => i.id == sample)[0];
-    console.log(barData);
+    var sampValues = Object.values(barData.sample_values);
+    var otuIds = Object.values(barData.otu_ids);
+    var otuLabels = Object.values(barData.otu_labels);
+    console.log(otuLabels);
     // var table = d3.select("#sample-metadata");
     // Object.entries(filterDemo).forEach(([key,value]) => {
     //   table.append("tr").text(`${key}: ${value}`)
     // })
+    // var data = [{
+    //   values: us,
+    //   labels: labels,
+    //   type: "pie"
+    // }];
+  
+    // var layout = {
+    //   height: 600,
+    //   width: 800
+    // };
+  
+    // Plotly.newPlot("pie", data, layout);
   })
 }
 
