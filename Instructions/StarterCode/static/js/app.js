@@ -9,7 +9,7 @@ function init(){
     });
     var sample = id_names[0];
     buildMetadata(sample);
-    // buildCharts(sample);
+    buildCharts(sample);
 });
 }
 
@@ -24,9 +24,17 @@ function buildMetadata(sample){
   })
 }
 
-// function buildCharts (sample) {
-//   return
-// }
+function buildCharts (sample) {
+  d3.json("static/js/samples.json").then(data => {
+    var samples = data.samples;
+    var barData = samples.filter(i => i.id == sample)[0];
+    console.log(barData);
+    // var table = d3.select("#sample-metadata");
+    // Object.entries(filterDemo).forEach(([key,value]) => {
+    //   table.append("tr").text(`${key}: ${value}`)
+    // })
+  })
+}
 
 
 function optionChanged(newSample){
